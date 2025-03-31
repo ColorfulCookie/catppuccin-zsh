@@ -9,15 +9,10 @@ else
 fi
 
 
-PROMPT="%(?:%F{${catppuccin_green}}%1{➜%} :%F{${catppuccin_red}}%1{➜%} )"
-if [ "$CATPPUCCIN_SHOW_TIME" = true ];
-then
-  PROMPT+="%F{${catppuccin_mauve}}%T%  "
-fi
-
-PROMPT+="%F{${catppuccin_pink}}%n%  "
+PROMPT="%F{${catppuccin_pink}}%n%F{$catppuccin_subtext1}@$(hostname) "
 PROMPT+="%F{${catppuccin_blue}}%c%{$reset_color%}"
 PROMPT+=' $(git_prompt_info)'
+PROMPT+="%(?:%F{${catppuccin_green}}%1{➜%} :%F{${catppuccin_red}}%1{➜%} )"
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%F{${catppuccin_teal}}("
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
