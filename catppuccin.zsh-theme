@@ -9,7 +9,11 @@ else
 fi
 
 
-PROMPT="%F{${catppuccin_pink}}%n%F{$catppuccin_subtext1}@$(hostname) "
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  PROMPT="%F{${catppuccin_pink}}%n%F{$catppuccin_subtext1}@$(scutil --get ComputerName) "
+else
+  PROMPT="%F{${catppuccin_pink}}%n%F{$catppuccin_subtext1}@$(hostname) "
+fi
 PROMPT+="%F{${catppuccin_blue}}%c%{$reset_color%}"
 PROMPT+=' $(git_prompt_info)'
 PROMPT+="%(?:%F{${catppuccin_green}}%1{➜%} :%F{${catppuccin_red}}%1{➜%} )"
